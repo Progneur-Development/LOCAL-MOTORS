@@ -1,0 +1,6 @@
+A total of 1269 preferences has been imported successfully!
+
+------------------------------------------------------
+All requested preferences have been imported.
+------------------------------------------------------
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<textsrv filename="lm9locals_text.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="lm9locals_text_locale.xml" parse="xml"/>
+<!--
+  To add a non-translatable message, un-comment an example line below and replace "key<N>" and "VALUE<N>"
+  with your message key and text. Do not use duplicate keys.
+  Up to 7 optional parameters can be specified using the %1$ notation.
+ -->
+<!--
+<key id="key1">VALUE1</key>
+<key id="key2">VALUE2 %1$</key>
+ -->
+</textsrv>

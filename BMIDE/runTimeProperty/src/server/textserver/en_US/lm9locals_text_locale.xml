@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<textsrv filename="lm9locals_text_locale.xml">
+<!--
+  To add a translatable message, un-comment an example line below and replace "key<N>" and "VALUE<N>"
+  with your message key and text. Do not use duplicate keys.
+  Up to 7 optional parameters can be specified using the %1$ notation.
+ -->
+<!--
+<key id="key1">VALUE1</key> 
+<key id="key2">VALUE2 %1$</key> 
+ -->
+</textsrv>

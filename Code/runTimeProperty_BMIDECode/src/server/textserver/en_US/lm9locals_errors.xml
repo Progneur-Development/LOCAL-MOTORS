@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="us-ascii" standalone="yes"?>
+<textsrv filename="lm9locals_errors.xml">
+    <errors module="<the solution name>" error_base="<error base number registered in emh_const.h>">
+<!--
+  To add a translatable error message, un-comment an example line below and replace "Error Message" with your message. Increment the 
+  error id to avoid duplication. Up to 7 optional parameters can be specified using the %1$ notation.
+ -->
+<!--
+<error id="1">Error Message</error>
+<error id="2">Error Message %1$</error>
+ -->
+</errors>
+</textsrv>

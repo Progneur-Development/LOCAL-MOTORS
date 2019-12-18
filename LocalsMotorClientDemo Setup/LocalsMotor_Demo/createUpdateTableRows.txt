@@ -1,0 +1,55 @@
+SET TC_ROOT=C:\SOFT\SPLM\Teamcenter11
+SET TC_DATA=C:\SOFT\SPLM\tcdata
+rem %TC_DATA%\tc_profilevars
+
+@echo off
+
+rem set srcDir=E:\InputFiles
+set srcDir_Create=E:\InputFiles\CreateFl\
+set srcDir_Update=E:\InputFiles\UpdateFl\
+
+rem set LogFileDir=%srcDir%\localUsProjLogfile.txt
+
+set inpdate=%date:~7,2%_%date:~4,2%_%date:~10,4%
+echo %inpdate%
+
+set "destDir=C:\TEMP\LOCAL_PROJLOG\Latest_CSV_Files\%inpdate%"
+
+if not exist "%destDir%\*" (
+    md "%destDir%"
+    if errorlevel 1 (
+        pause
+       
+    )
+)
+
+
+rem /******Get Create file path****/
+
+pushd "%srcDir_Create%"
+for /f "tokens=*" %%G in ('dir *.csv /b /a-d /od') do SET newest=%%G
+set inCreatefile= %srcDir_Create%%newest% 
+ 
+echo %inCreatefile%
+ 
+rem copy last modified file from user location to new location
+ xcopy %inCreatefile% %destDir% /O /X /E /H /K
+ 
+popd
+
+rem /******Get update file path****/
+
+pushd "%srcDir_Update%"
+for /f "tokens=*" %%G in ('dir *.csv /b /a-d /od') do SET newest=%%G
+set inUpdatefile= %srcDir_Update%%newest% 
+ 
+ echo %inUpdatefile%
+ 
+rem copy last modified file from user location to new location
+ xcopy %inUpdatefile% %destDir% /O /X /E /H /K
+ 
+popd
+
+rem /**Call exe file***/
+call E:\aaLocal_US_Project_Workspace\Final_Demo\LocalUSProjectCreatePO.exe -u=infodba -p=infodba -g=dba -input_Create_PO_file=%inCreatefile% -input_Update_PO_file=%inUpdatefile%
+remcall E:\aaLocal_US_Project_Workspace\Final_Demo\LocalUSProjectUpdatePO.exe -u=infodba -p=infodba -g=dba -input_Create_PO_file=%inCreatefile% -input_Update_PO_file=%inUpdatefile%
